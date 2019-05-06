@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, flatMap } from 'rxjs/operators';
@@ -18,7 +18,7 @@ export class EntryService {
   getAll(): Observable<Entry[]> {
     return this.http.get(this.apiPath).pipe(
       catchError(this.handleError),
-      map(this.jsonDataToCategories)
+      map(this.jsonDataToEntries)
     );
   }
 
@@ -55,14 +55,19 @@ export class EntryService {
     );
   }
 
-  private jsonDataToCategories(jsonData: any[]): Entry[] {
+  private jsonDataToEntries(jsonData: any[]): Entry[] {
     const entries: Entry[] = [];
-    jsonData.forEach(element => entries.push(element as Entry));
+
+    jsonData.forEach(element => {
+      const entry = Object.assign(new Entry(), element);
+      entries.push(entry);
+    });
+
     return entries;
   }
 
-  private jsonDataToEntry(jsonData: any[]): Entry {
-    return jsonData as Entry;
+  private jsonDataToEntry(jsonData: any): Entry {
+    return Object.assign(new Entry(), jsonData);
   }
 
   private handleError(error: any): Observable<any> {
