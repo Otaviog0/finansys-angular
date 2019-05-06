@@ -2,7 +2,7 @@
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a> </li>
     <li class="breadcrumb-item"><a [routerLink]="['/categoires']">Categorias</a> </li>
-    <li class="breadcrumb-item active">Formulário de categorias</li>
+    <li class="breadcrumb-item active">Formulário de categorias {{currentAction}}</li>
   </ol>
 </nav>
 
@@ -19,7 +19,7 @@
   </div>
 </div>
 
-<form>
+<form [formGroup] = "categoryForm">
 
   <div class="card">
     <div class="card-header">
