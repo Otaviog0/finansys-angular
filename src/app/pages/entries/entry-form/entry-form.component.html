@@ -91,7 +91,6 @@
           <label for="categoryId">Categoria</label>
 
           <select name="categoryId" id="categoryId" formControlName="categoryId" class="form-control">
-            <option value="null"></option>
             <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
           </select>
 
