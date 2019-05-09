@@ -1,9 +1,6 @@
 <app-bread-crumb [items]="[{text: 'Relatorio de Receitas e Despesas'}]"></app-bread-crumb>
 
-<app-page-header 
-  page-title='Relatorio de Receitas e Despesas'
-  [show-button]='false'
-></app-page-header>
+<app-page-header page-title='Relatorio de Receitas e Despesas' [show-button]='false'></app-page-header>
 
 <div class="card">
   <div class="card-header">
@@ -61,7 +58,7 @@
     </div>
     <div class="div card-body">
       <h3 class="card-title">
-        1500
+        {{revenueTotal}}
       </h3>
     </div>
   </div>
@@ -72,18 +69,18 @@
     </div>
     <div class="div card-body">
       <h3 class="card-title">
-        500
+        {{expenseTotal}}
       </h3>
     </div>
   </div>
 
   <div class="card text-center text-white bg-info">
     <div class="card-header">
-     SALDO
+      SALDO
     </div>
     <div class="div card-body">
       <h3 class="card-title">
-        1000
+        {{balance}}
       </h3>
     </div>
   </div>
@@ -93,9 +90,9 @@
 
 <div class="row mt-5 mb-4">
   <div class="col-md-6">
-    GRÁFICO DE RECEITAS
+    <p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>
   </div>
   <div class="col-md-6">
-    GRÁFICO DE DESPESAS
+    <p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>
   </div>
 </div>
