@@ -112,7 +112,7 @@ export class ReportsComponent implements OnInit {
     return {
       labels: chartData.map(item => item.categoryName),
       datasets: [{
-        labels: title,
+        label: title,
         backgroundColor: color,
         data: chartData.map(item => item.totalAmount)
       }]
