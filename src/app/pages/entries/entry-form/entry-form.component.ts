@@ -74,7 +74,7 @@ export class EntryFormComponent extends BaseResourceFormComponent<Entry> impleme
       paid: [true, [Validators.required]],
       categoryId: [null, [Validators.required]]
     });
-    console.log(this.resourceForm);
+
   }
 
   private loadCategories() {
